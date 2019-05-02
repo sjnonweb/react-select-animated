@@ -1,7 +1,7 @@
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react-input-autosize'), require('classnames'), require('prop-types'), require('react'), require('react-dom'), require('react-spring/renderprops')) :
 	typeof define === 'function' && define.amd ? define(['react-input-autosize', 'classnames', 'prop-types', 'react', 'react-dom', 'react-spring/renderprops'], factory) :
-	(global.Select = factory(global.AutosizeInput,global.classNames,global.PropTypes,global.React,global.ReactDOM,global['Transition,config']));
+	(global.Select = factory(global.AutosizeInput,global.classNames,global.PropTypes,global.React,global.ReactDOM,global['Transition,config,animated']));
 }(this, (function (AutosizeInput,classNames,PropTypes,React,reactDom,renderprops) { 'use strict';
 
 AutosizeInput = AutosizeInput && AutosizeInput.hasOwnProperty('default') ? AutosizeInput['default'] : AutosizeInput;
@@ -1808,6 +1808,7 @@ var Select$1 = function (_React$Component) {
 			return React__default.createElement(
 				renderprops.Transition,
 				{
+					native: true,
 					items: isOpen,
 					from: { opacity: 0, transform: 'perspective(800px) rotateX(-90deg)', transformOrigin: 'top' },
 					enter: { opacity: 1, transform: 'perspective(800px) rotateX(0deg)', transformOrigin: 'top' },
@@ -1817,7 +1818,7 @@ var Select$1 = function (_React$Component) {
 				function (isOpen) {
 					return isOpen && function (props) {
 						return React__default.createElement(
-							'div',
+							renderprops.animated.div,
 							{
 								ref: function ref(_ref5) {
 									return _this8.menuContainer = _ref5;

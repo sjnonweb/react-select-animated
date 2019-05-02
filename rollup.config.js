@@ -12,7 +12,7 @@ const globals = {
 	'react-dom': 'ReactDOM',
 	'react-input-autosize': 'AutosizeInput',
 	react: 'React',
-	'react-spring/renderprops': 'Transition,config',
+	'react-spring/renderprops': 'Transition,config,animated',
 };
 const external = Object.keys(globals);
 const babelOptions = (production) => {
@@ -28,7 +28,7 @@ const babelOptions = (production) => {
 };
 const cjsConf = {
 	namedExports: {
-		'node_modules/react-spring/renderprops.js': ['Transition', 'config'],
+		'node_modules/react-spring/renderprops.js': ['Transition', 'config', 'animated'],
 	},
 };
 

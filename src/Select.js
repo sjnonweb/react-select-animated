@@ -8,7 +8,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { findDOMNode } from 'react-dom';
-import { Transition, config } from 'react-spring/renderprops';
+import { Transition, config, animated } from 'react-spring/renderprops';
 
 import defaultArrowRenderer from './utils/defaultArrowRenderer';
 import defaultClearRenderer from './utils/defaultClearRenderer';
@@ -1100,15 +1100,16 @@ class Select extends React.Component {
 
 		return (
 			<Transition
+				native
 				items={isOpen}
-				from={{ opacity: 0, transform: 'perspective(800px) rotateX(-90deg)', transformOrigin: 'top'}}
-				enter={{ opacity: 1, transform: 'perspective(800px) rotateX(0deg)', transformOrigin: 'top'}}
-				leave={{ opacity: 0, transform: 'perspective(800px) rotateX(-90deg)', transformOrigin: 'top'}}
+				from={{ opacity: 0, transform: 'perspective(800px) rotateX(-90deg)', transformOrigin: 'top' }}
+				enter={{ opacity: 1, transform: 'perspective(800px) rotateX(0deg)', transformOrigin: 'top' }}
+				leave={{ opacity: 0, transform: 'perspective(800px) rotateX(-90deg)', transformOrigin: 'top' }}
 				config={config.stiff}
 			>
 			{
 				(isOpen) => isOpen && ((props) => (
-					<div
+					<animated.div
 						ref={ref => this.menuContainer = ref}
 						className="Select-menu-outer"
 						style={{
@@ -1128,7 +1129,7 @@ class Select extends React.Component {
 						>
 							{menu}
 						</div>
-					</div>
+					</animated.div>
 				))
 			}
 			</Transition>

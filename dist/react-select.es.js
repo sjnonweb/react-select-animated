@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
-import { Transition, config } from 'react-spring/renderprops';
+import { Transition, animated, config } from 'react-spring/renderprops';
 
 var arrowRenderer = function arrowRenderer(_ref) {
 	var onMouseDown = _ref.onMouseDown;
@@ -1804,6 +1804,7 @@ var Select$1 = function (_React$Component) {
 			return React.createElement(
 				Transition,
 				{
+					native: true,
 					items: isOpen,
 					from: { opacity: 0, transform: 'perspective(800px) rotateX(-90deg)', transformOrigin: 'top' },
 					enter: { opacity: 1, transform: 'perspective(800px) rotateX(0deg)', transformOrigin: 'top' },
@@ -1813,7 +1814,7 @@ var Select$1 = function (_React$Component) {
 				function (isOpen) {
 					return isOpen && function (props) {
 						return React.createElement(
-							'div',
+							animated.div,
 							{
 								ref: function ref(_ref5) {
 									return _this8.menuContainer = _ref5;
